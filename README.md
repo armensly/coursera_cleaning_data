@@ -1,7 +1,9 @@
 ### This document will go through the steps taken in run_analysis.R file to clean and tidy the dataset obtained from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) and generate dataset1 and a to summarize those data in dataset2. ###
 
 ### Generating a tidy dataset (dataset1): ###
-``Reading the features (X files) and selecting desired columns:``
+
+**Reading the features (X files) and selecting desired columns:**
+
 We first downloaded and unzipped the data into a local directory, then we open and read the features from X_train.txt and X_test.txt files. The data in these files contain extra space characters, as a result we can not use a simple read.csv or read.table with a single " " separation character to correctly load the data. To overcome this problem we read these file using readLines command where the data is read text lines. We then use the gsub command to replace multiple occurences of space characters in the file, with a single comma (",") character. For this purpose we used the regex " +" to identify a sequence of one or more spaces. We also remove the leading spaces from the lines using trimws() function, before using the gsub on them.
 
 After removing sequences of multiple spaces and forming a string where the values are separated by a comma, we used the read.csv function to read the data into a dataframe. However, rather than writing the cleaned up strings to file and then reading it back, we fed the already read and cleaned lines of strings into the read.csv function. This is made possible by using the "text" parameter of the read.csv function, where rather than giving the name of a file to the read.csv function we give the textual string of data to the function. (i.e. read.csv(text = linesOfData))
@@ -14,7 +16,8 @@ We need to keep only the features involving mean and std values. Unfortunately t
 
 To select the feature names pertaining to columns for mean and std values, we use grep() and a regex to find all the names that contain mean() or std() in the column names. These desired feature names are stored in the remainingFeatures variable. At this stage we use the select() function and the remiaingFeatures vector to drop all other features from the mergedData dataframe.
 
-``Reading the subjects and labels (y files) and adding them to the dataframe:``
+**Reading the subjects and labels (y files) and adding them to the dataframe:**
+
 The subjects are simply read using the read.csv() function from the subject_train.txt and subject_test.txt files. Then we merge these subjects using the rbind() function.
 
 The labels are also read using the read.csv() function from the y_train.txt and y_test.txt files and then merged using rbind() function. But these labels are integer numbers (1-6), each representing an activity. These labels are described in activity_labels.txt file. To change this integer representative label to a descriptive value, we read the activiy_labels.txt file and then use a for loop to select each activity label (e.g. STANDING, WALKING, etc.) and change its corresponding value from an integer to its string description.
