@@ -1,4 +1,4 @@
-** Feature Selection: **
+**Feature Selection:**
 
 This dataset summarizes the data from dataset1, averaging the information for each of the features for every subject every activity. For example, for subject #1, activity "standing" we have averaged the values for all variables in dataset1 and contained in this dataset (dataset2) as one entry. There are 30 different subjects and 6 different activites, as a result, dataset2 has 180 rows. The features are similar to those explained in codebook for dataset1. We re-iterate these explanations here:
 
@@ -18,7 +18,7 @@ Additionally, two other features are recorded in the dataset:
 "subject", which is an integer between 1 to 30 and represents an ID number for the person on whom the data were recorded. 
 "activity", which is one of the following values: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING and LAYING.
 
-** List of features: **
+**List of features:**
 
 A complete list of features in the dataset (as explained above) is listed here:
 
