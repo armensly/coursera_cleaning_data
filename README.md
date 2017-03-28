@@ -1,4 +1,4 @@
-## This document will go through the steps taken in run_analysis.R file to clean and tidy the dataset obtained from [dl_link] (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "here") and generate dataset1 and a to summarize those data in dataset2.##
+## This document will go through the steps taken in run_analysis.R file to clean and tidy the dataset obtained from [here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) and generate dataset1 and a to summarize those data in dataset2.##
 
 ### Generating a tidy dataset (dataset1):###
 ``Reading the features (X files) and selecting desired columns:``
