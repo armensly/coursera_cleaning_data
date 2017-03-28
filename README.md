@@ -1,6 +1,6 @@
-##This document will go through the steps taken in run_analysis.R file to clean and tidy the dataset obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and generate dataset1 and a to summarize those data in dataset2.##
+## This document will go through the steps taken in run_analysis.R file to clean and tidy the dataset obtained from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and generate dataset1 and a to summarize those data in dataset2.##
 
-###Generating a tidy dataset (dataset1):###
+### Generating a tidy dataset (dataset1):###
 ``Reading the features (X files) and selecting desired columns:``
 We first downloaded and unzipped the data into a local directory, then we open and read the features from X_train.txt and X_test.txt files. The data in these files contain extra space characters, as a result we can not use a simple read.csv or read.table with a single " " separation character to correctly load the data. To overcome this problem we read these file using readLines command where the data is read text lines. We then use the gsub command to replace multiple occurences of space characters in the file, with a single comma (",") character. For this purpose we used the regex " +" to identify a sequence of one or more spaces. We also remove the leading spaces from the lines using trimws() function, before using the gsub on them.
 
@@ -25,6 +25,6 @@ Finally, to give descriptive names to the columns we perform some minor changes 
 
 At this point, the dataset1 is ready and we write it to file using write.table() function.
 
-###Generating the second dataset of summary values:###
+### Generating the second dataset of summary values:###
 To generate the summaries dataset, we should average the values for the rows with the same subject and activity. To do this, we group the dataset1 using group_by function of the dplyr library and arguments subject and activity. Then we use the summarize_each function that works on all remaining columns (that the dataframe is not grouped by them) and applies the given function on those columns. In this case we specify the function mean as the argument to the summarize_each function. But because summarize_each accepts a vector of functions, we pass funs(mean) rather than mean.
 Finally, we write the generated dataset to file using write.table() function.
