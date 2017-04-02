@@ -1,5 +1,4 @@
-Feature Selection 
-=================
+**Feature Selection:**
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals timeDomainAcc-XYZ and timeDomainGyro-XYZ. These time domain signals were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (timeDomainBodyAcc-XYZ and timeDomainGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -16,6 +15,8 @@ std(): Standard deviation
 Additionally, two other features are recorded in the dataset:
 "subject", which is an integer between 1 to 30 and represents an ID number for the person on whom the data were recorded. 
 "activity", which is one of the following values: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING and LAYING.
+
+**List of features:**
 
 A complete list of features in the dataset (as explained above) is listed here:
 
